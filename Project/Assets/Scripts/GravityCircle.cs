@@ -7,20 +7,21 @@ public class GravityCircle : MonoBehaviour
     Sprite originalSprite;
     Sprite activatedSprite;
     SpriteRenderer rend;
-    Rigidbody2D playerRB;
+    public Rigidbody2D playerRB;
     Vector2 coords;
     bool isActivated;
     [SerializeField]
     const float pull = 100;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        Debug.Log("Circles awakened.");
         rend = GetComponent<SpriteRenderer>();
         originalSprite = rend.sprite;
         activatedSprite = Resources.Load<Sprite>("openCircles_03");
 
-        playerRB = GameObject.Find("Player").GetComponent<Rigidbody2D>();
+        
         coords = GetComponent<Transform>().position;
     }
 
@@ -43,6 +44,7 @@ public class GravityCircle : MonoBehaviour
     {
         rend.sprite = activatedSprite;
         isActivated = true;
+        playerRB = GameObject.FindWithTag("Player").GetComponent<Rigidbody2D>();
     }
 
     private void OnMouseUp()

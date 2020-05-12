@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using JetBrains.Annotations;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -17,13 +18,13 @@ public class Goal : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collision.collider.name == "Player")
+        Debug.Log("Checking collision.");
+        if (collider.tag == "Player")
         {
             Debug.Log("WIN!!!");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-
+            LoadLevel.FinishLevel();
         }
     }
 }
