@@ -14,6 +14,6 @@ public class ResetButton : MonoBehaviour
     }
     void OnClick()
     {
-        LoadLevel.ResetLevel();
+        LoadLevel.ResetLevel();             //Geeft foutmelding in console??
     }
 }

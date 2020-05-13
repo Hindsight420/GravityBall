@@ -54,7 +54,7 @@ public class LoadLevel : MonoBehaviour
     {
         foreach (GameObject loadedObject in loadedObjects)
         {
-            Destroy(loadedObject);
+          Destroy(loadedObject);
         }
         LoadCurrentLevel();
     }    

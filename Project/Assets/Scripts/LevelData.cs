@@ -9,7 +9,6 @@ public class LevelData : MonoBehaviour
     public Vector2 goalPosition;
     public List<Vector2> gravityCirclesPosition;
 
-
     public LevelData(Vector2 playerPos, Vector2 goalPos, List<Vector2> gravityCirclesPos)
     {
         playerPosition = playerPos;
