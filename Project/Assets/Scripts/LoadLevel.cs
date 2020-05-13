@@ -21,7 +21,7 @@ public class LoadLevel : MonoBehaviour
         LoadCurrentLevel();
     }
 
-    static void LoadCurrentLevel()
+    static public void LoadCurrentLevel()
     {
         testLevel = LevelData.GetDummyData()[currentLevel];
         Debug.Log("Loading currentLevel" + currentLevel);
@@ -49,6 +49,15 @@ public class LoadLevel : MonoBehaviour
         LoadCurrentLevel();
 
     }
+
+    static public void ResetLevel()
+    {
+        foreach (GameObject loadedObject in loadedObjects)
+        {
+            Destroy(loadedObject);
+        }
+        LoadCurrentLevel();
+    }    
 
     // Update is called once per frame
     void Update()
