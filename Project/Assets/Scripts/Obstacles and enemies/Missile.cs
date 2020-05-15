@@ -24,7 +24,9 @@ public class Missile : MonoBehaviour
         Vector3 velocity = directionToTarget * missileSpeed;
         Vector3 moveAmount = velocity * Time.deltaTime;
 
-        transform.LookAt(targetOfMissile);                                      //Draait ook op andere axes dan Z
+        float directionAngle = Mathf.Atan2(directionToTarget.y, directionToTarget.x) * Mathf.Rad2Deg;  // Richting
+        directionAngle -= 90;
+        transform.rotation = Quaternion.AngleAxis(directionAngle, Vector3.forward);
               
 
         transform.position = transform.position + moveAmount;

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Obstacle
   - UI
+  - LE_Draggable
   layers:
   - Default
   - TransparentFX
