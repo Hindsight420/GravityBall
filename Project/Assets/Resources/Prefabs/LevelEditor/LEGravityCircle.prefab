@@ -24,6 +24,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LEGravityCircle
       objectReference: {fileID: 0}
+    - target: {fileID: 846750251836603784, guid: c6e10b13c10833a428367849721ba1d8,
+        type: 3}
+      propertyPath: m_TagString
+      value: LE_GravCircle
+      objectReference: {fileID: 0}
     - target: {fileID: 4337281165629644854, guid: c6e10b13c10833a428367849721ba1d8,
         type: 3}
       propertyPath: m_IsTrigger

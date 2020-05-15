@@ -8,12 +8,14 @@ public class LevelData : MonoBehaviour
     public Vector2 playerPosition;
     public Vector2 goalPosition;
     public List<Vector2> gravityCirclesPosition;
+    // public List<Vector2> obstaclesPosition;
 
-    public LevelData(Vector2 playerPos, Vector2 goalPos, List<Vector2> gravityCirclesPos)
+    public LevelData(Vector2 playerPos, Vector2 goalPos, List<Vector2> gravityCirclesPos) // , List<Vector2> obstaclesPos)
     {
         playerPosition = playerPos;
         goalPosition = goalPos;
         gravityCirclesPosition = gravityCirclesPos;
+        // obstaclesPosition = obstaclesPos;
     }
 
     public static List<LevelData> GetDummyData()
