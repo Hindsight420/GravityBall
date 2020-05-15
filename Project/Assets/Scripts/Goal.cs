@@ -20,10 +20,8 @@ public class Goal : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log("Checking collision.");
-        if (collider.tag == "Player")
+        if (collider.CompareTag("Player"))
         {
-            Debug.Log("WIN!!!");
             LoadLevel.FinishLevel();
         }
     }

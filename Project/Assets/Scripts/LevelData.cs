@@ -28,6 +28,7 @@ public class LevelData : MonoBehaviour
     List<Vector2> gravityCirclesListLevel2 = new List<Vector2>();
         gravityCirclesListLevel2.Add(new Vector2(0, 5));
         gravityCirclesListLevel2.Add(new Vector2(3, 4));
+        gravityCirclesListLevel2.Add(new Vector2(-0, -5));
         LD.Add(new LevelData(new Vector2(1, 1), new Vector2(-1, -1), gravityCirclesListLevel2));
 
         return LD;

@@ -16,7 +16,6 @@ public class GravityCircle : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        Debug.Log("Circles awakened.");
         rend = GetComponent<SpriteRenderer>();
         originalSprite = rend.sprite;
         activatedSprite = Resources.Load<Sprite>("openCircles_03");
