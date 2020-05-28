@@ -7,6 +7,11 @@ public class DraggableElement : MonoBehaviour
     Vector3 cursorPosition;
     Vector3 translationMouseToObject;
     bool mouseIsDown;
+    public GameObject linkedPrefab;
+
+    void Start()
+    {
+    }
 
      void Update()
     {

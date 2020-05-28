@@ -19,7 +19,6 @@ public class GravityCircle : MonoBehaviour
         rend = GetComponent<SpriteRenderer>();
         originalSprite = rend.sprite;
         activatedSprite = Resources.Load<Sprite>("openCircles_03");
-
         
         coords = GetComponent<Transform>().position;
     }
