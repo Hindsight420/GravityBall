@@ -8,6 +8,7 @@ TagManager:
   - UI
   - LE_GravCircle
   - LE_Obstacle
+  - Goal
   layers:
   - Default
   - TransparentFX
