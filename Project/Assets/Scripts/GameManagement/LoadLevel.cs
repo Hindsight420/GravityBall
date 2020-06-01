@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Newtonsoft.Json;
 
 public class LoadLevel : MonoBehaviour
 {
@@ -17,7 +18,8 @@ public class LoadLevel : MonoBehaviour
         gravityCircleObject = (GameObject)Resources.Load("Prefabs/GravityCircle", typeof(GameObject));
         playerObject = (GameObject)Resources.Load("Prefabs/Player", typeof(GameObject));
         goalObject = (GameObject)Resources.Load("Prefabs/Goal", typeof(GameObject));
-        LoadCurrentLevel();
+        // LoadCurrentLevel();
+        LoadLevelFromPlayerPrefs();
     }
 
     static public void LoadCurrentLevel()
@@ -30,6 +32,17 @@ public class LoadLevel : MonoBehaviour
         foreach (Vector2 gravityCirclePositions in testLevel.gravityCirclesPosition)
         {
             loadedObjects.Add(Instantiate(gravityCircleObject, gravityCirclePositions, Quaternion.identity));
+        }
+    }
+
+    static public void LoadLevelFromPlayerPrefs()
+    {
+        string loadedJSON = PlayerPrefs.GetString("level1");
+        List<LevelData.ElementPosition> loadedJSONList = JsonConvert.DeserializeObject<List<LevelData.ElementPosition>>(loadedJSON);        //Maakt de code stoer.
+
+        foreach (LevelData.ElementPosition elementPosition in loadedJSONList)
+        {
+            loadedObjects.Add(Instantiate((GameObject)Resources.Load("Prefabs/" + elementPosition.element, typeof(GameObject)), elementPosition.position, Quaternion.identity));
         }
     }
 
