@@ -4,29 +4,19 @@ using UnityEngine;
 
 public class GravityCircle : MonoBehaviour
 {
+    [SerializeField]
+    const float pull = 100;
     Sprite originalSprite;
     Sprite activatedSprite;
     SpriteRenderer rend;
-    public Rigidbody2D playerRB;
-    Vector2 coords;
     bool isActivated;
-    [SerializeField]
-    const float pull = 100;
+    public Rigidbody2D playerRB;
 
-    // Start is called before the first frame update
     void Awake()
     {
         rend = GetComponent<SpriteRenderer>();
         originalSprite = rend.sprite;
         activatedSprite = Resources.Load<Sprite>("GravCircle_Clicked");
-        
-        coords = GetComponent<Transform>().position;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     void FixedUpdate()

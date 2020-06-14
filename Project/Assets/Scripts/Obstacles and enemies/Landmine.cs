@@ -11,7 +11,7 @@ public class Landmine : MonoBehaviour
         if (colliderTag == "Player")
         {
             Debug.Log("Player hit landmine.");
-            LoadLevel.ResetLevel();
+            LoadLevel.LoadCurrentLevel();
         }
 
     }

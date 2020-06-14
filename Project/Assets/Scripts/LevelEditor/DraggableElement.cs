@@ -9,17 +9,12 @@ public class DraggableElement : MonoBehaviour
     bool mouseIsDown;
     public GameObject linkedPrefab;
 
-    void Start()
-    {
-    }
-
      void Update()
     {
         cursorPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         if (mouseIsDown) transform.position = cursorPosition - translationMouseToObject;
     }
-    
-
+ 
     void OnMouseDown()
     {
         translationMouseToObject = cursorPosition - transform.position;
