@@ -19,18 +19,27 @@ public static class InputOutput
         return LevelDirectory + "/level" + levelIndex + ".json";
     }
 
-    public static int FindHighestLevelFileNumber()
+    public static int GetLevelIndex(string fileName)
+    {
+        char[] charsToTrim = { 'l', 'e', 'v', '.', 'j', 's', 'o', 'n' };
+        return System.Convert.ToInt32(fileName.Trim(charsToTrim));
+    }
+
+    public static FileInfo[] GetAllLevelFiles()
     {
         DirectoryInfo levelDirectory = new DirectoryInfo(LevelDirectory);
-        FileInfo[] fileInfos = levelDirectory.GetFiles();
+        return levelDirectory.GetFiles();
+    }
+
+    public static int FindHighestLevelFileNumber()
+    {
+        FileInfo[] fileInfos = GetAllLevelFiles();
         List<int> fileNumbers = new List<int>();
         int highestFileNumber = 0;
 
         foreach (FileInfo fileInfo in fileInfos)
         {
-            string fileName = fileInfo.Name;
-            char[] charsToTrim = { 'l', 'e', 'v', '.', 'j', 's', 'o', 'n' };
-            int fileNumber = System.Convert.ToInt32(fileName.Trim(charsToTrim));
+            int fileNumber = GetLevelIndex(fileInfo.Name);
             fileNumbers.Add(fileNumber);
         }
 

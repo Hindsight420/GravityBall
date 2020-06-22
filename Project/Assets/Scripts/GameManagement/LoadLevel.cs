@@ -24,13 +24,21 @@ public class LoadLevel : MonoBehaviour
         LoadCurrentLevel();
     }
 
+    public static void SetCurrentLevel(int levelIndex)
+    {
+        currentLevel = levelIndex;
+    }
     public static void LoadCurrentLevel()
     {
         DestroyElementObjects();
         string path = InputOutput.GetLevelPath(currentLevel);
         string jsonData = InputOutput.LoadJsonDataFromPath(path);
         ConvertJsonDataToObjectPositions(jsonData);
-
+    }
+    
+    public static void ChangeCurrentLevelByName(string fileName)
+    {
+        currentLevel = InputOutput.GetLevelIndex(fileName);
     }
 
     static void DestroyElementObjects()

@@ -6,9 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/De goede level 3.unity
+    path: Assets/Scenes/MainMenu.unity
+    guid: d0c7290b1ebbf48429e79f20dc487e89
+  - enabled: 1
+    path: Assets/Scenes/PlayMode.unity
     guid: 8590a4b0d701bd54684873d2efe1c6dd
   - enabled: 1
-    path: Assets/Scenes/Main Menu.unity
-    guid: d0c7290b1ebbf48429e79f20dc487e89
+    path: Assets/Scenes/LevelSelector.unity
+    guid: 7ebde72c9bffaff43ad89c6b41d2672b
+  - enabled: 1
+    path: Assets/Scenes/LevelEditor.unity
+    guid: e8cab84c9cd9d7c43973786697019d82
   m_configObjects: {}

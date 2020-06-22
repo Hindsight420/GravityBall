@@ -295,7 +295,7 @@ GameObject:
   - component: {fileID: 1063090102}
   - component: {fileID: 1063090101}
   m_Layer: 5
-  m_Name: Select Level
+  m_Name: SelectLevelButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -362,7 +362,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1063090102}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2073672151}
+        m_MethodName: OnSelectLevelClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1063090102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -412,9 +423,8 @@ GameObject:
   - component: {fileID: 1070873035}
   - component: {fileID: 1070873034}
   - component: {fileID: 1070873033}
-  - component: {fileID: 1070873036}
   m_Layer: 5
-  m_Name: To Game
+  m_Name: PlayButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -482,7 +492,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1070873034}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2073672151}
+        m_MethodName: OnPlayButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1070873034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -520,69 +541,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1070873031}
   m_CullTransparentMesh: 0
---- !u!114 &1070873036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1070873031}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7daaead0c8cb7f49aac7383bd2d2fc7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  toGameMMButton: {fileID: 0}
-  selectLevelMMButton: {fileID: 0}
-  leveleditorMMButton: {fileID: 0}
-  optionsMMButton: {fileID: 0}
---- !u!1 &1290442423
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1290442425}
-  - component: {fileID: 1290442424}
-  m_Layer: 0
-  m_Name: UIManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1290442424
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1290442423}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7daaead0c8cb7f49aac7383bd2d2fc7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  toGameMMButton: {fileID: 1070873033}
-  selectLevelMMButton: {fileID: 1063090101}
-  leveleditorMMButton: {fileID: 1866079880}
-  optionsMMButton: {fileID: 1811121780}
---- !u!4 &1290442425
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1290442423}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 298, y: 260.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1481066615
 GameObject:
   m_ObjectHideFlags: 0
@@ -674,7 +632,7 @@ GameObject:
   - component: {fileID: 1811121781}
   - component: {fileID: 1811121780}
   m_Layer: 5
-  m_Name: Button
+  m_Name: OptionsButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -793,7 +751,7 @@ GameObject:
   - component: {fileID: 1866079878}
   - component: {fileID: 1866079880}
   m_Layer: 5
-  m_Name: Level Editor
+  m_Name: CreateLevelButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -897,7 +855,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1866079878}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2073672151}
+        m_MethodName: OnCreateLevelClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2032111311
 GameObject:
   m_ObjectHideFlags: 0
@@ -976,6 +945,7 @@ GameObject:
   - component: {fileID: 2073672150}
   - component: {fileID: 2073672149}
   - component: {fileID: 2073672148}
+  - component: {fileID: 2073672151}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -1066,3 +1036,15 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &2073672151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073672146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 388fab5a1672cf240925d06d319493e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
