@@ -18,7 +18,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - DraggedElement
   - 
   - 
   - 
@@ -49,6 +49,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Obstacles
+    uniqueID: 3249147521
+    locked: 0
   - name: Player
     uniqueID: 971631345
+    locked: 0
+  - name: UI
+    uniqueID: 1619273227
     locked: 0

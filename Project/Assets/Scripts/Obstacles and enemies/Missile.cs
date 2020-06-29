@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-public class Missile : MonoBehaviour
+public class Missile : GamePlayElement
 {
     public Transform targetOfMissile;
     public float missileSpeed = 3f;

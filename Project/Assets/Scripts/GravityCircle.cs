@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GravityCircle : MonoBehaviour
+public class GravityCircle : GamePlayElement
 {
     [SerializeField]
     const float pull = 100;

@@ -11,9 +11,8 @@ GameObject:
   - component: {fileID: 2408911410947857256}
   - component: {fileID: 2988154684065360298}
   - component: {fileID: 5900511603202859872}
-  - component: {fileID: -8905055313687592244}
-  m_Layer: 0
-  m_Name: Bomb
+  m_Layer: 8
+  m_Name: Landmine
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -109,15 +108,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.56, y: 2.56}
   m_EdgeRadius: 0
---- !u!114 &-8905055313687592244
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1237654676941911283}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a619ce0564358084992c4abbda91a97d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
