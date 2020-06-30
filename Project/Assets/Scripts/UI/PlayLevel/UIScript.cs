@@ -40,7 +40,7 @@ public class UIScript : MonoBehaviour
 
     public void OnToMainMenuButtonClicked()
     {
-       GameManager.GoToMainMenu();
+        GameManager.GoToMainMenu();
     }
 
 

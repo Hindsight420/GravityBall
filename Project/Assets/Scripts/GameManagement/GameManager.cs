@@ -13,6 +13,7 @@ public static class GameManager
     public static void GoToPlayMode()
     {
         SceneManager.LoadScene(1);
+        Time.timeScale = 1;
     }
 
     public static void GoToLevelSelector()

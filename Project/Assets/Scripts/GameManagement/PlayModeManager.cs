@@ -7,7 +7,7 @@ public class PlayModeManager : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     public void PauseGameplay()
@@ -15,7 +15,7 @@ public class PlayModeManager : MonoBehaviour
         Time.timeScale = 0;
     }
 
-   public void UnpauseGameplay()
+    public void UnpauseGameplay()
     {
         Time.timeScale = 1;
     }

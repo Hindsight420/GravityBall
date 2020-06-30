@@ -11,6 +11,7 @@ public class LE_ElementButton : MonoBehaviour, IPointerDownHandler, IEndDragHand
     public GameObject prefab;
     GameObject elementPreview;
 
+
     void Start()
     {
         gameObject.GetComponent<Button>().onClick.AddListener(OnButtonClick);
@@ -38,9 +39,11 @@ public class LE_ElementButton : MonoBehaviour, IPointerDownHandler, IEndDragHand
     {
         Destroy(elementPreview);
 
-        //Check if cursor is above UI. If not:
+        if (LE_UIScript.IsMouseOverUIElement() == false)
+        {
+            DraggableElement.InstantiateFromPrefab(prefab);
+        }
 
-        DraggableElement.InstantiateFromPrefab(prefab);
     }
 
 }

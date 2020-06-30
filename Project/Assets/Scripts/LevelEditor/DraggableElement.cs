@@ -7,11 +7,10 @@ using UnityEngine.UI;
 public class DraggableElement : MonoBehaviour, IEndDragHandler, IDragHandler
 {
     public GameObject linkedPrefab;
-    Vector3 cursorPosition;
 
     public void OnDrag(PointerEventData eventData)
     {
-        cursorPosition = Camera.main.ScreenToWorldPoint(eventData.position);
+        Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(eventData.position);
         transform.position = new Vector3(cursorPosition.x, cursorPosition.y, 0f);
 
         //Fix desync issue
@@ -19,9 +18,10 @@ public class DraggableElement : MonoBehaviour, IEndDragHandler, IDragHandler
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        // Check if cursor is above UI, if so:
-
-        // Destroy(this.gameObject);
+        if (LE_UIScript.IsMouseOverUIElement())
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     public static void InstantiateFromPrefab(GameObject prefab)
