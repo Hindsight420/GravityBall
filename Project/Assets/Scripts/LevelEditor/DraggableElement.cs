@@ -1,24 +1,34 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Assertions.Must;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-public class DraggableElement : MonoBehaviour
+public class DraggableElement : MonoBehaviour, IEndDragHandler, IDragHandler
 {
-
     public GameObject linkedPrefab;
+    Vector3 cursorPosition;
 
-    void OnMouseDrag()
+    public void OnDrag(PointerEventData eventData)
     {
-        Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector3 translationMouseToObject = cursorPosition - transform.position;
-        transform.position = new Vector3(cursorPosition.x - translationMouseToObject.x, cursorPosition.y - translationMouseToObject.y, -9f);
+        cursorPosition = Camera.main.ScreenToWorldPoint(eventData.position);
+        transform.position = new Vector3(cursorPosition.x, cursorPosition.y, 0f);
+
+        //Fix desync issue
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        // Check if cursor is above UI, if so:
+
+        // Destroy(this.gameObject);
     }
 
     public static void InstantiateFromPrefab(GameObject prefab)
     {
         Vector3 initialInstancePosition = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0f);
         GameObject elementInstance = Instantiate(prefab, initialInstancePosition, Quaternion.identity);
+        elementInstance.layer = 8;
 
         foreach (GamePlayElement gamePlayElement in FindObjectsOfType<GamePlayElement>())
         {
@@ -26,6 +36,8 @@ public class DraggableElement : MonoBehaviour
         }
 
         DraggableElement draggableElement = elementInstance.AddComponent<DraggableElement>();
+        draggableElement.linkedPrefab = prefab;
+        
     }
 
 }
