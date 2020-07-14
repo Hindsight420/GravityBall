@@ -1,15 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
-using System.Reflection;
-using UnityEditor;
+using UnityEngine.UI;
 
-public class LE_ElementButton : MonoBehaviour, IPointerDownHandler, IEndDragHandler, IDragHandler
+public class LE_ElementButton : MonoBehaviour, IPointerDownHandler, IDragHandler, IEndDragHandler
 {
     public GameObject prefab;
-    GameObject elementPreview;
+    GameObject objectInstance;
+    DraggableElement draggableElementScript;
 
 
     void Start()
@@ -19,31 +16,30 @@ public class LE_ElementButton : MonoBehaviour, IPointerDownHandler, IEndDragHand
 
     void OnButtonClick()
     {
-        Destroy(elementPreview);
+        Destroy(objectInstance);
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        elementPreview = Instantiate(prefab, new Vector3(eventData.position.x, eventData.position.y, -9f), Quaternion.identity);
+        Debug.Log("OnPointerDown called.");
+        objectInstance = DraggableElement.InstantiateFromPrefab(prefab);
+        draggableElementScript = objectInstance.GetComponent<DraggableElement>();
+
+        eventData.pointerDrag = objectInstance;
+        ExecuteEvents.Execute(objectInstance, eventData, ExecuteEvents.initializePotentialDrag);
+        ExecuteEvents.Execute(objectInstance, eventData, ExecuteEvents.pointerDownHandler);
+
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(eventData.position);
-        elementPreview.transform.position = new Vector3(cursorPosition.x, cursorPosition.y, -9f);
-
-        //Fix desync issues
+        Debug.Log("ElementButton OnDrag called.");
+        draggableElementScript.OnDrag(eventData);
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Destroy(elementPreview);
-
-        if (LE_UIScript.IsMouseOverUIElement() == false)
-        {
-            DraggableElement.InstantiateFromPrefab(prefab);
-        }
-
+        Debug.Log("ElementButton OnEndDrag called.");
+        draggableElementScript.OnEndDrag(eventData);
     }
-
 }
